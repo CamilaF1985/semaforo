@@ -2,15 +2,19 @@
 
 body {
   background-image: url(https://f.cl.ly/items/2K0P3z2y3X3c052f2B3Y/Image%202013.04.30%2021%3A28%3A02.png);
+  margin: 0; 
+  padding:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+#container {
+  text-align: center;
 }
 
 #traffic-light {
-  position: absolute;
-  display: block;
-  left: 50%;
-  top: 50%;
-  margin-left: -60px;
-  margin-top: -160px;
   background-color: #333;
   width: 120px;
   height: 320px;
@@ -49,6 +53,13 @@ body {
   background-color: #00FF00; /* Verde */
   box-shadow: 0 0 6em transparent;
 }
+
+button {
+  margin-top: 20px;
+}
+
+
+
 
 
 
