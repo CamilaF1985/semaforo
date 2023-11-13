@@ -27,10 +27,6 @@ body {
   transition: height 0.3s; /* Transición suave para el cambio de altura */
 }
 
-#traffic-light.dynamic-height {
-  height: 440px; /* Altura ajustada para el color púrpura */
-}
-
 .light {
   position: relative;
   width: 80px;
@@ -81,10 +77,6 @@ body {
 
 .light.active-color3::before {
   background-color: #00FF00; /* Verde */
-}
-
-.light.active-color-purple::before {
-  background-color: #800080; /* Púrpura */
 }
 
 button {
