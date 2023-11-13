@@ -5,9 +5,13 @@ import './App.css';
 function TrafficLight() {
   const [activeColor, setActiveColor] = useState(null);
   const [buttonActive, setButtonActive] = useState(false);
+  const [colors, setColors] = useState(['color1', 'color2', 'color3']);
 
   const handleButtonClick = () => {
     setButtonActive(!buttonActive);
+    if (!buttonActive) {
+      setActiveColor(colors[0]);
+    }
   };
 
   const handleLightClick = (color) => {
@@ -28,10 +32,9 @@ function TrafficLight() {
     return () => {
       clearInterval(intervalId);
     };
-  }, [buttonActive, activeColor]);
+  }, [buttonActive, activeColor, colors]);
 
   const autoChangeColor = () => {
-    const colors = ['color1', 'color2', 'color3'];
     let currentIndex = colors.indexOf(activeColor);
     currentIndex = (currentIndex + 1) % colors.length;
     const newColor = colors[currentIndex];
@@ -42,28 +45,42 @@ function TrafficLight() {
     setActiveColor(color);
   };
 
+  const togglePurpleColor = () => {
+    if (!buttonActive && colors.length < 4) {
+      setColors((prevColors) => [...prevColors, 'color4']);
+      setActiveColor('color4');
+    } else {
+      setColors(['color1', 'color2', 'color3']);
+      setActiveColor(null);
+    }
+  };
+
   return (
     <div id="container">
       <div id="traffic-light">
-        <div
-          className={`light ${activeColor === 'color1' ? 'active-color1' : ''}`}
-          onClick={() => handleLightClick('color1')}
-        />
-        <div
-          className={`light ${activeColor === 'color2' ? 'active-color2' : ''}`}
-          onClick={() => handleLightClick('color2')}
-        />
-        <div
-          className={`light ${activeColor === 'color3' ? 'active-color3' : ''}`}
-          onClick={() => handleLightClick('color3')}
-        />
+        {colors.map((color) => (
+          <div
+            key={color}
+            className={`light ${activeColor === color ? `active-${color}` : ''}`}
+            onClick={() => handleLightClick(color)}
+          />
+        ))}
       </div>
+      <button onClick={togglePurpleColor}>Toggle Color Púrpura</button>
       <button onClick={handleButtonClick}>Alternar Colores</button>
     </div>
   );
 }
 
 export default TrafficLight;
+
+
+
+
+
+
+
+
 
 
 
