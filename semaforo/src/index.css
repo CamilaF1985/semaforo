@@ -2,26 +2,33 @@
 
 body {
   background-image: url(https://f.cl.ly/items/2K0P3z2y3X3c052f2B3Y/Image%202013.04.30%2021%3A28%3A02.png);
-  margin: 0; 
-  padding:0;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  height: 100vh;
 }
 
 #container {
   text-align: center;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
+  align-items: center;
 }
 
 #traffic-light {
   background-color: #333;
   width: 120px;
-  height: 320px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: height 0.3s; /* Transición suave para el cambio de altura */
+}
+
+#traffic-light.dynamic-height {
+  height: 440px; /* Altura ajustada para el color púrpura */
 }
 
 .light {
@@ -29,6 +36,7 @@ body {
   width: 80px;
   height: 80px;
   margin-top: 20px;
+  margin-bottom: 20px; /* Ajuste para agregar espacio entre la luz verde y la parte inferior */
   background-color: grey;
   border-radius: 100%;
   cursor: pointer;
@@ -36,27 +44,55 @@ body {
 }
 
 .light:hover {
-  background-color: darken(#333, 15%);
+  background-color: rgba(26, 26, 26, 0.85); /* Ajusta el valor alpha según tu preferencia */
 }
 
-.light.active-color1 {
+.light.active-color1,
+.light.active-color2,
+.light.active-color3,
+.light.active-color-purple {
+  background-color: transparent; /* Elimina el fondo cuando la luz está activa */
+  box-shadow: 0 0 6em transparent;
+}
+
+.light.active-color1::before,
+.light.active-color2::before,
+.light.active-color3::before,
+.light.active-color-purple::before {
+  content: ''; /* Pseudo-elemento para crear el círculo */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.light.active-color1::before {
   background-color: #FF0000; /* Rojo */
-  box-shadow: 0 0 6em transparent;
 }
 
-.light.active-color2 {
+.light.active-color2::before {
   background-color: #FFFF00; /* Amarillo */
-  box-shadow: 0 0 6em transparent;
 }
 
-.light.active-color3 {
+.light.active-color3::before {
   background-color: #00FF00; /* Verde */
-  box-shadow: 0 0 6em transparent;
+}
+
+.light.active-color-purple::before {
+  background-color: #800080; /* Púrpura */
 }
 
 button {
-  margin-top: 20px;
+  margin-top: 20px; /* Puedes ajustar el valor según tu preferencia */
 }
+
+
+
 
 
 

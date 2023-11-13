@@ -5,6 +5,7 @@ import './App.css';
 function TrafficLight() {
   const [activeColor, setActiveColor] = useState(null);
   const [buttonActive, setButtonActive] = useState(false);
+  const [purpleActive, setPurpleActive] = useState(false);
 
   const handleButtonClick = () => {
     setButtonActive(!buttonActive);
@@ -42,9 +43,18 @@ function TrafficLight() {
     setActiveColor(color);
   };
 
+  const handlePurpleClick = () => {
+    setPurpleActive(!purpleActive);
+    if (purpleActive) {
+      autoChangeColor();
+    } else {
+      changeColor('purple');
+    }
+  };
+
   return (
     <div id="container">
-      <div id="traffic-light">
+      <div id="traffic-light" className={purpleActive ? 'dynamic-height' : ''}>
         <div
           className={`light ${activeColor === 'color1' ? 'active-color1' : ''}`}
           onClick={() => handleLightClick('color1')}
@@ -57,13 +67,26 @@ function TrafficLight() {
           className={`light ${activeColor === 'color3' ? 'active-color3' : ''}`}
           onClick={() => handleLightClick('color3')}
         />
+        {purpleActive && (
+          <div className={`light active-color-purple`} />
+        )}
       </div>
       <button onClick={handleButtonClick}>Alternar Colores</button>
+      <button onClick={handlePurpleClick}>Color Extra</button>
     </div>
   );
 }
 
 export default TrafficLight;
+
+
+
+
+
+
+
+
+
 
 
 
