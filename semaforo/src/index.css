@@ -1,3 +1,4 @@
+/* Estilos generales del cuerpo de la página */
 body {
   background-image: url(https://f.cl.ly/items/2K0P3z2y3X3c052f2B3Y/Image%202013.04.30%2021%3A28%3A02.png);
   margin: 0;
@@ -8,13 +9,15 @@ body {
   height: 100vh;
 }
 
+/* Estilos del contenedor principal */
 #container {
   text-align: center;
   display: flex;
-  flex-direction: column; /* Alinea los elementos en columna */
+  flex-direction: column; 
   align-items: center;
 }
 
+/* Estilos del semáforo */
 #traffic-light {
   background-color: #333;
   width: 120px;
@@ -24,34 +27,39 @@ body {
   align-items: center;
 }
 
+/* Estilos de las luces del semáforo */
 .light {
   position: relative;
   width: 80px;
   height: 80px;
   margin-top: 20px;
-  margin-bottom: 20px; /* Ajuste para agregar espacio entre la luz verde y la parte inferior */
+  margin-bottom: 20px; 
   background-color: grey;
   border-radius: 100%;
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+/* Efecto de cambio de color al pasar el ratón sobre una luz */
 .light:hover {
-  background-color: rgba(26, 26, 26, 0.85); /* Ajusta el valor alpha según tu preferencia */
+  background-color: rgba(26, 26, 26, 0.85); 
 }
 
+/* Estilos de las luces activas del semáforo (color 1, 2, 3) */
 .light.active-color1,
 .light.active-color2,
 .light.active-color3 {
-  background-color: transparent; /* Elimina el fondo cuando la luz está activa */
+  background-color: transparent;
   box-shadow: 0 0 6em transparent;
 }
 
+/* Estilos de la luz activa adicional (color 4) */
 .light.active-color4 {
   background-color: transparent;
   box-shadow: 0 0 6em transparent;
 }
 
+/* Efecto de cambio de color para la luz activa adicional (color 4) */
 .light.active-color4::before {
   content: '';
   position: absolute;
@@ -65,10 +73,11 @@ body {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+/* Efecto de cambio de color para las luces activas (color 1, 2, 3) */
 .light.active-color1::before,
 .light.active-color2::before,
 .light.active-color3::before{
-  content: ''; /* Pseudo-elemento para crear el círculo */
+  content: ''; 
   position: absolute;
   top: 50%;
   left: 50%;
@@ -80,21 +89,26 @@ body {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+/* Color específico para el pseudo-elemento de la luz activa (color 1) */
 .light.active-color1::before {
   background-color: #FF0000; /* Rojo */
 }
 
+/* Color específico para el pseudo-elemento de la luz activa (color 2) */
 .light.active-color2::before {
   background-color: #FFFF00; /* Amarillo */
 }
 
+/* Color específico para el pseudo-elemento de la luz activa (color 3) */
 .light.active-color3::before {
   background-color: #00FF00; /* Verde */
 }
 
+/* Estilos generales del botón */
 button {
-  margin-top: 20px; /* Puedes ajustar el valor según tu preferencia */
+  margin-top: 20px; 
 }
+
 
 
 
