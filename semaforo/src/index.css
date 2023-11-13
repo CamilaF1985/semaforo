@@ -24,7 +24,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: height 0.3s; /* Transición suave para el cambio de altura */
 }
 
 .light {
@@ -45,16 +44,14 @@ body {
 
 .light.active-color1,
 .light.active-color2,
-.light.active-color3,
-.light.active-color-purple {
+.light.active-color3 {
   background-color: transparent; /* Elimina el fondo cuando la luz está activa */
   box-shadow: 0 0 6em transparent;
 }
 
 .light.active-color1::before,
 .light.active-color2::before,
-.light.active-color3::before,
-.light.active-color-purple::before {
+.light.active-color3::before{
   content: ''; /* Pseudo-elemento para crear el círculo */
   position: absolute;
   top: 50%;
